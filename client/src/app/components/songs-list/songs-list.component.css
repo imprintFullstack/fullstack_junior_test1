@@ -1,0 +1,66 @@
+.songImage {
+    width: 100px;
+    border-radius: 4px;
+}
+
+.title {
+    max-width: 100%;
+    color: #242424;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.subtitle {
+    color: #949494;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+li {
+    border: none;
+}
+
+.songCont:hover {
+    background-color: #f9f9f9;
+}
+
+.songIndex {
+    margin-top: 25px;
+}
+
+.songCont {
+    border-bottom: 1px solid #f4f4f4;
+    padding: 10px 0px 10px 0px;
+}
+
+.shazamIcon {
+    margin-top: 20px;
+    background-image: url(https://www.shazam.com/resources/6a70bd6acae5578760b35e54e0d1e943d7579ae7/logos/logo.png);
+    width: 120px;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    display: inline-block;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
