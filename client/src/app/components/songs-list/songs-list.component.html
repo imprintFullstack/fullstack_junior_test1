@@ -17,7 +17,7 @@
 
 <ul class="list-group">
   <li *ngFor="let item of songsList|songName:searchText ;index as i;" class="list-group-item">
-    <div class="songCont row">
+    <div class="songCont row" [ngClass]="{'fav': isFav(item.title)}">
       <div class="songIndex col-lg-1">
         <h3 class="">{{i +1}}</h3>
       </div>
@@ -30,6 +30,9 @@
       </div>
       <div class="col-lg-2">
         <a [href]="item.shazamLink" class="shazamIcon" target="_blank"></a>
+      </div>
+      <div class="col-lg-2">
+        <button (click)="addToFav(item.title)">add to fav</button>
       </div>
     </div>
   </li>

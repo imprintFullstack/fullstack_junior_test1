@@ -13,7 +13,30 @@ export class SongsService {
   ) { }
 
   getSongList(){
-    return this.http.get('/api/songs').toPromise();
+    const options = {
+      headers: new HttpHeaders({
+        "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF2aXZAY3ljdXJpdHkuY29tIiwibmFtZSI6ImF2aXYiLCJpYXQiOjE1NTQ4ODIyOTl9._cLVE40a47NXHENdLCd8L4AGaORzJs8vkIMFIt4WyWU'
+      })
+    };
+    return this.http.get('/api/songs',options).toPromise();
+  }
+
+  addToFav(_name: string){
+    const options = {
+      headers: new HttpHeaders({
+        "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF2aXZAY3ljdXJpdHkuY29tIiwibmFtZSI6ImF2aXYiLCJpYXQiOjE1NTQ4ODIyOTl9._cLVE40a47NXHENdLCd8L4AGaORzJs8vkIMFIt4WyWU'
+      })
+    };
+    return this.http.post('/api/addToFavorites',{songName: _name},options).toPromise();
+  }
+
+  getAllFav(){
+    const options = {
+      headers: new HttpHeaders({
+        "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF2aXZAY3ljdXJpdHkuY29tIiwibmFtZSI6ImF2aXYiLCJpYXQiOjE1NTQ4ODIyOTl9._cLVE40a47NXHENdLCd8L4AGaORzJs8vkIMFIt4WyWU'
+      })
+    };
+    return this.http.get('/api/getAllFavorites',options).toPromise();
   }
 
   createListObject(response){

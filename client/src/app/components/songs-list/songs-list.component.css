@@ -55,6 +55,10 @@ li {
     animation: spin 2s linear infinite;
 }
 
+.fav{
+    background-color: #fff81c;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
