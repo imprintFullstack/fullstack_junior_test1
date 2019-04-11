@@ -18,7 +18,7 @@ export class SongsService {
         "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF2aXZAY3ljdXJpdHkuY29tIiwibmFtZSI6ImF2aXYiLCJpYXQiOjE1NTQ4ODIyOTl9._cLVE40a47NXHENdLCd8L4AGaORzJs8vkIMFIt4WyWU'
       })
     };
-    return this.http.get('https://fullstack-test-server.herokuapp.com/api/search/songName',options).toPromise();
+    return this.http.get('http://fullstack-test-server.herokuapp.com/api/search/songName',options).toPromise();
   }
 
   addToFav(_name: string){

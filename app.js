@@ -16,6 +16,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 //angular dist
 app.get('/', (req, res) => {
     console.log("/angular client  ");
@@ -23,36 +30,36 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(distpath, '/index.html'));
 });
 
-app.post('/api/addToFavorites',[authMiddleware], (req, res) => {
+app.post('/api/addToFavorites', [authMiddleware], (req, res) => {
     const songName = req.body.songName;
     console.log(songName);
     //check if already exist
-    let search = favorites.filter((x)=> x == songName);
+    let search = favorites.filter((x) => x == songName);
     //if exist remove from array
-    if(search.length > 0 ){
-        favorites = favorites.filter((x) => x!= songName);
-        res.json({status:"deleted"});
-    }else{
+    if (search.length > 0) {
+        favorites = favorites.filter((x) => x != songName);
+        res.json({ status: "deleted" });
+    } else {
         favorites.push(songName);
-        res.json({status:"added"});
+        res.json({ status: "added" });
     }
 });
 
-app.get('/api/getAllFavorites',[authMiddleware], (req, res) => {
+app.get('/api/getAllFavorites', [authMiddleware], (req, res) => {
     console.log(favorites);
     res.json(favorites);
 });
 
-function authMiddleware(req, res, next){
+function authMiddleware(req, res, next) {
     try {
-      const token = req.headers.authorization.split("Bearer "); 
-      const data = jwt.verify(token[1], jwtKey);
-      if(data.email == "aviv@cycurity.com" && data.name == "aviv"){
-        next();
-      }
+        const token = req.headers.authorization.split("Bearer ");
+        const data = jwt.verify(token[1], jwtKey);
+        if (data.email == "aviv@cycurity.com" && data.name == "aviv") {
+            next();
+        }
     } catch (error) {
         console.log(error);
-        res.status(403).json({error:"Not Authorize"});
+        res.status(403).json({ error: "Not Authorize" });
     }
 }
 
