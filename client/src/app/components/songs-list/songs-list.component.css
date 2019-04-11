@@ -55,8 +55,29 @@ li {
     animation: spin 2s linear infinite;
 }
 
-.fav{
+.fav {
     background-color: #ffffd4;
+}
+
+ul {
+    overflow-y: scroll;
+    height: 50vh;
+}
+
+.searchRow{
+    padding-bottom: 10px;
+}
+
+footer {
+    padding-top: 10px;
+    padding-left: 21px;
+    background-color: #e9ecef8a;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    left: 0px;
+    border-top: 1px solid #c8c9c9;
+    color: #898a8b;
 }
 
 @keyframes spin {
