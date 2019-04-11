@@ -25,14 +25,18 @@
         <img class="songImage" [src]="item.image">
       </div>
       <div class="col-lg-5">
-        <div class="title">{{item.title}}</div>
+        <div class="title">{{item.title | uppercase}}</div>
         <div class="subtitle">{{item.subtitle}}</div>
       </div>
       <div class="col-lg-2">
         <a [href]="item.shazamLink" class="shazamIcon" target="_blank"></a>
       </div>
       <div class="col-lg-2">
-        <button (click)="addToFav(item.title)">add to fav</button>
+          <svg (click)="addToFav(item.title)" viewBox="0 0 32 32" width="32" height="32" [attr.fill]="isFav(item.title)?'#fffc20':'none'" stroke="#949494" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z" />
+          </svg>
+
+        <!-- <button (click)="addToFav(item.title)">add to fav</button> -->
       </div>
     </div>
   </li>
