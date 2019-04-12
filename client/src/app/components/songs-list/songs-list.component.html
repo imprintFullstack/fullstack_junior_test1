@@ -1,17 +1,16 @@
-<div class="jumbotron">
-  <h1 class="display-4">Imprint</h1>
-  <p class="lead">Welcome to the fullstack test</p>
-</div>
 
 <div class="row searchRow">
-  <!-- Topbar Search -->
-  <form [formGroup]="searchForm"
-    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-    <div class="input-group">
-      <input type="text" formControlName="search" (keyup)="valueChanged()" class="form-control bg-light border-0 small"
-        placeholder="Search by song name" aria-label="Search" aria-describedby="basic-addon2">
-    </div>
-  </form>
+  <div class="col-lg-2"></div>
+  <div class="col-lg-4">
+    <!-- Topbar Search -->
+    <form [formGroup]="searchForm"
+      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <div class="input-group">
+        <input type="text" formControlName="search" (keyup)="valueChanged()" class="form-control bg-light border-0 small"
+          placeholder="Search by song name" aria-label="Search" aria-describedby="basic-addon2">
+      </div>
+    </form>
+  </div>
 </div>
 
 <div class="row" *ngIf="listLoader">
@@ -20,35 +19,35 @@
   </div>
 </div>
 
-<ul class="list-group">
-  <li *ngFor="let item of songsList|songName:searchText ;index as i;" class="list-group-item">
-    <div class="songCont row" [ngClass]="{'fav': isFav(item.title)}">
-      <div class="songIndex col-lg-1">
-        <h3 class="">{{i +1}}</h3>
-      </div>
-      <div class="col-lg-2">
-        <img class="songImage" [src]="item.image">
-      </div>
-      <div class="col-lg-5">
-        <div class="title">{{item.title | uppercase}}</div>
-        <div class="subtitle">{{item.subtitle}}</div>
-      </div>
-      <div class="col-lg-2">
-        <a [href]="item.shazamLink" class="shazamIcon" target="_blank"></a>
-      </div>
-      <div class="col-lg-2">
-          <svg (click)="addToFav(item.title)" viewBox="0 0 32 32" width="32" height="32" [attr.fill]="isFav(item.title)?'#fffc20':'none'" stroke="#949494" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-            <path d="M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z" />
-          </svg>
-
-        <!-- <button (click)="addToFav(item.title)">add to fav</button> -->
-      </div>
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <ul class="list-group">
+        <li *ngFor="let item of songsList|songName:searchText ;index as i;" class="list-group-item">
+          <div class="songCont row" [ngClass]="{'fav': isFav(item.title)}">
+            <div class="songIndex col-lg-1">
+              <h3 class="">{{i +1}}</h3>
+            </div>
+            <div class="col-lg-2">
+              <img class="songImage" [src]="item.image">
+            </div>
+            <div class="col-lg-5">
+              <div class="title">{{item.title | uppercase}}</div>
+              <div class="subtitle">{{item.subtitle}}</div>
+            </div>
+            <div class="col-lg-2">
+              <a [href]="item.shazamLink" class="shazamIcon" target="_blank"></a>
+            </div>
+            <div class="col-lg-2">
+                <svg (click)="addToFav(item.title)" viewBox="0 0 32 32" width="32" height="32" [attr.fill]="isFav(item.title)?'#fffc20':'none'" stroke="#949494" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M16 2 L20 12 30 12 22 19 25 30 16 23 7 30 10 19 2 12 12 12 Z" />
+                </svg>
+      
+              <!-- <button (click)="addToFav(item.title)">add to fav</button> -->
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-  </li>
-</ul>
+</div>
 
-<footer>
-  <p>Created by: Imprint R&D</p>
-  <p>Contact information: <a href="mailto:info@imprint-social.com">
-    info@imprint-social.com</a>.</p>
-</footer>

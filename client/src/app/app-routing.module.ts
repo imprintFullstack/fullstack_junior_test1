@@ -5,8 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { SongsListComponent } from './components/songs-list/songs-list.component';
 
 const routes: Routes = [
-  { path: '',redirectTo: 'songsList',pathMatch: 'full'},
-  { path: 'songsList', component: SongsListComponent }
+  // { path: '*',redirectTo: 'songsList',pathMatch: 'full'},
+  // { path: 'songsList', component: SongsListComponent }
+  { path: '**', component: SongsListComponent }
 ];
 
 @NgModule({
