@@ -1,5 +1,9 @@
 <div class="container-fluid">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <div class="page">
+    <app-header style="flex:1;"></app-header>
+    <div class="content" style="flex:2;">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer style="flex:1;"></app-footer>
+  </div>
 </div>
