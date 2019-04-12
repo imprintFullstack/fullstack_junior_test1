@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 
 
 //angular dist
-app.get('/', (req, res) => {
+app.get('/main', (req, res) => {
     console.log("/angular client  ");
     let distpath = path.join(__dirname, "./client/dist/client");
     res.sendFile(path.join(distpath, '/index.html'));
