@@ -31,10 +31,10 @@ export class SongsListComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.favList = await this.songsService.getAllFav();
-    const response: any = await this.songsService.getSongList();
-    this.songsList = this.songsService.createListObject(response);
-    this.listLoader = false;
+    // this.favList = await this.songsService.getAllFav();
+    // const response: any = await this.songsService.getSongList();
+    // this.songsList = this.songsService.createListObject(response);
+    // this.listLoader = false;
   }
 
   valueChanged(){
